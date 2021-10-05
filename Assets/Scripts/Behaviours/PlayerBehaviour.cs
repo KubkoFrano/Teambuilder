@@ -9,7 +9,7 @@ public class PlayerBehaviour : MonoBehaviour
     private void Start()
     {
         App.playerBehaviour = this;
-        data = new Player(0);
+        data = new Player(0, 2);
     }
 
     public void AddMoney(int toAdd)
@@ -20,5 +20,11 @@ public class PlayerBehaviour : MonoBehaviour
     public void AddTheatre(Theatre theatre)
     {
         data.theatres.Add(theatre);
+        data.theatreCount++;
+    }
+
+    public int GetTheatreCount()
+    {
+        return data.theatreCount;
     }
 }

@@ -6,7 +6,6 @@ public class GridControl : MonoBehaviour
 {
     [SerializeField] float verticalSpacing;
     [SerializeField] float scrollMagnitude;
-    [SerializeField] Transform defaultCamPos;
     [SerializeField] float correctionSpeed;
 
     Camera cam;
@@ -17,8 +16,6 @@ public class GridControl : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main;
-        cam.transform.position = defaultCamPos.position;
-        topBound = defaultCamPos.position.y;
     }
 
     private void Update()
@@ -31,7 +28,7 @@ public class GridControl : MonoBehaviour
                 Vector2 delta = Input.GetTouch(0).deltaPosition;
                 float move = -delta.y * scrollMagnitude;
 
-                if (cam.transform.position.y + move < topBound && cam.transform.position.y + move > defaultCamPos.position.y - (App.playerBehaviour.GetTheatreCount() - 3)* verticalSpacing)
+                if (cam.transform.position.y + move < topBound && cam.transform.position.y + move > 0 - (App.playerBehaviour.GetTheatreCount() - 3)* verticalSpacing)
                     cam.transform.position += new Vector3(0, move, 0);
             }
 
@@ -53,7 +50,7 @@ public class GridControl : MonoBehaviour
                 cam.transform.Translate(new Vector3(0, -correctionSpeed, 0) * Time.deltaTime);
                 if (targetHeight >= cam.transform.position.y)
                 {
-                    cam.transform.position = new Vector3(defaultCamPos.position.x, targetHeight, defaultCamPos.position.z);
+                    cam.transform.position = new Vector3(0, targetHeight, -10);
                     shouldFix = false;
                 }
             }
@@ -63,7 +60,7 @@ public class GridControl : MonoBehaviour
                 cam.transform.Translate(new Vector3(0, correctionSpeed, 0) * Time.deltaTime);
                 if (targetHeight <= cam.transform.position.y)
                 {
-                    cam.transform.position = new Vector3(defaultCamPos.position.x, targetHeight, defaultCamPos.position.z);
+                    cam.transform.position = new Vector3(0, targetHeight, -10);
                     shouldFix = false;
                 }
 

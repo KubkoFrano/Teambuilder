@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    Player player;
+    Player data;
 
     private void Start()
     {
         App.playerBehaviour = this;
-        player = new Player(0);
+        data = new Player(0);
     }
 
     public void AddMoney(int toAdd)
     {
-        player.money += toAdd;
+        data.money += toAdd;
+    }
+
+    public void AddTheatre(Theatre theatre)
+    {
+        data.theatres.Add(theatre);
     }
 }

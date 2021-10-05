@@ -28,7 +28,7 @@ public class GridControl : MonoBehaviour
                 Vector2 delta = Input.GetTouch(0).deltaPosition;
                 float move = -delta.y * scrollMagnitude;
 
-                if (cam.transform.position.y + move < topBound && cam.transform.position.y + move > 0 - (App.playerBehaviour.GetTheatreCount() - 3)* verticalSpacing)
+                if (cam.transform.position.y + move < topBound && cam.transform.position.y + move > 0 - (App.playerBehaviour.GetTheatreCount() - 2)* verticalSpacing)
                     cam.transform.position += new Vector3(0, move, 0);
             }
 

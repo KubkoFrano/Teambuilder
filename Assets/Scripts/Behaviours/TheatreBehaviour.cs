@@ -9,10 +9,13 @@ public class TheatreBehaviour : MonoBehaviour
 
     Theatre data;
 
-    private void Start()
+    private void Awake()
     {
         data = new Theatre(10);
+    }
 
+    private void Start()
+    {
         //Debug
         AddEmployee(new Employee(1, 1, 1, 1, 1));
         AddEmployee(new Employee(1, 1, 1, 1, 1));
@@ -28,6 +31,11 @@ public class TheatreBehaviour : MonoBehaviour
         data.AddEmpCount();
         
         RecalculateIncome();
+    }
+
+    public int GetEmpCount()
+    {
+        return data.GetEmpCount();
     }
 
     public void RecalculateIncome()

@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   employeePrefab: {fileID: 9130289291308101457, guid: 2563401444a0d03428688c4db4876416, type: 3}
-  employeeOffset: 1
+  employeeOffset: 1.05
 --- !u!61 &3183898637818325963
 BoxCollider2D:
   m_ObjectHideFlags: 0

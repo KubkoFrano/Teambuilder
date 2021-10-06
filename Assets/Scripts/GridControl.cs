@@ -7,18 +7,35 @@ public class GridControl : MonoBehaviour
     [SerializeField] float verticalSpacing;
     [SerializeField] float swipeSpeed;
 
+    float horizontalSpacing;
+
+    Transform[] rows;
+    int[] lengths;
+
     Camera cam;
-    bool moving = false;
+    bool isMovingV = false;
+    bool isMovingH = false;
 
     int theatreIndex = 0;
+    int horizontalIndex = 0;
 
     private bool tapRequested;
     private bool isDragging = false;
     private Vector2 startTouch, swipeDelta;
 
-    private void Awake()
+    private void Start()
     {
         cam = Camera.main;
+        TheatreBehaviour[] temp = GetComponentsInChildren<TheatreBehaviour>();
+        horizontalSpacing = 5.62f;
+        rows = new Transform[temp.Length];
+        lengths = new int[temp.Length];
+
+        for (int i = 0; i < rows.Length; i++)
+        {
+            rows[i] = temp[i].transform;
+            lengths[i] = temp[i].GetEmpCount();
+        }
     }
 
     private void Update()
@@ -87,26 +104,60 @@ public class GridControl : MonoBehaviour
 
     void SwipeHorizontal(bool right)
     {
-        Debug.Log("horizontal");
+        if (isMovingH)
+            StopCoroutine("MoveTheatre");
+
+        if (right)
+            IncHI(false);
+        else
+            IncHI(true);
+
+        StartCoroutine(MoveTheatre(-horizontalIndex * horizontalSpacing, theatreIndex));
+    }
+
+    IEnumerator MoveTheatre(float targetX, int index)
+    {
+        if (isMovingV || index >= rows.Length)
+            yield break;
+
+        isMovingH = true;
+        bool right = targetX > rows[index].position.x;
+
+        if (right)
+            while (targetX > rows[index].position.x)
+            {
+                rows[index].Translate(Vector3.right * Time.deltaTime * swipeSpeed);
+                yield return new WaitForEndOfFrame();
+            }
+        else
+            while (targetX < rows[index].position.x)
+            {
+                rows[index].Translate(Vector3.left * Time.deltaTime * swipeSpeed);
+                yield return new WaitForEndOfFrame();
+            }
+
+        rows[index].position = new Vector3(targetX, rows[index].position.y, rows[index].position.z);
+
+        isMovingH = false;
+        yield return 0;
     }
 
     void SwipeVertical(bool up)
     {
-        if (moving)
+        if (isMovingV)
             StopCoroutine("MoveCam");
 
         if (up)
             IncTI(true);
-        else if (!up && theatreIndex > 0)
+        else
             IncTI(false);
 
-        StartCoroutine(MoveCam(-(theatreIndex) * verticalSpacing));
+        StartCoroutine(MoveCam(-theatreIndex * verticalSpacing));
     }
 
     IEnumerator MoveCam(float targetHeight)
     {
-        Debug.Log("move");
-        moving = true;
+        isMovingV = true;
         bool up = targetHeight > cam.transform.position.y;
 
         if (up)
@@ -124,15 +175,33 @@ public class GridControl : MonoBehaviour
 
         cam.transform.position = new Vector3(0, targetHeight, -10);
 
-        moving = false;
+        isMovingV = false;
+        horizontalIndex = 0;
         yield return 0;
     }
 
     void IncTI(bool inc)
     {
         if (inc && theatreIndex + 2 < App.playerBehaviour.GetTheatreCount())
+        {
+            StartCoroutine(MoveTheatre(0, theatreIndex));
             theatreIndex++;
+        }   
         else if (!inc && theatreIndex > 0)
+        {
+            StartCoroutine(MoveTheatre(0, theatreIndex));
             theatreIndex--;
+        }
+    }
+    
+    void IncHI(bool inc)
+    {
+        if (theatreIndex >= lengths.Length)
+            return;
+
+        if (inc && horizontalIndex < lengths[theatreIndex])
+            horizontalIndex++;
+        else if (!inc && horizontalIndex > 0)
+            horizontalIndex--;
     }
 }

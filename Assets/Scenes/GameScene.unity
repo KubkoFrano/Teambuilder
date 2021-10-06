@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verticalSpacing: 8
-  scrollMagnitude: 0.003
+  swipeSpeed: 60
   correctionSpeed: 20
 --- !u!1001 &315267758
 PrefabInstance:

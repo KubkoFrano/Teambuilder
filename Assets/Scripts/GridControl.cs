@@ -5,13 +5,16 @@ using UnityEngine;
 public class GridControl : MonoBehaviour
 {
     [SerializeField] float verticalSpacing;
-    [SerializeField] float scrollMagnitude;
-    [SerializeField] float correctionSpeed;
+    [SerializeField] float swipeSpeed;
 
     Camera cam;
-    bool shouldFix = false;
-    float topBound;
-    float targetHeight;
+    bool moving = false;
+
+    int theatreIndex = 0;
+
+    private bool tapRequested;
+    private bool isDragging = false;
+    private Vector2 startTouch, swipeDelta;
 
     private void Awake()
     {
@@ -22,49 +25,114 @@ public class GridControl : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            if (Input.GetTouch(0).phase == TouchPhase.Moved)
+            if (Input.touches[0].phase == TouchPhase.Began)
             {
-                shouldFix = false;
-                Vector2 delta = Input.GetTouch(0).deltaPosition;
-                float move = -delta.y * scrollMagnitude;
-
-                if (cam.transform.position.y + move < topBound && cam.transform.position.y + move > 0 - (App.playerBehaviour.GetTheatreCount() - 2)* verticalSpacing)
-                    cam.transform.position += new Vector3(0, move, 0);
+                tapRequested = true;
+                isDragging = true;
+                startTouch = Input.touches[0].position;
             }
-
-            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
             {
-                shouldFix = true;
-                float realDistance = -cam.transform.position.y + topBound;
-                int row = Mathf.RoundToInt(realDistance / verticalSpacing);
-
-                targetHeight = topBound - row * verticalSpacing;
+                if (tapRequested)
+                    Touch(Input.GetTouch(0).position);
+                isDragging = false;
+                Reset();
             }
         }
 
-        if (shouldFix)
+        swipeDelta = Vector2.zero;
+        if (isDragging && Input.touchCount > 0)
+            swipeDelta = Input.touches[0].position - startTouch;
+
+        if (swipeDelta.magnitude > 100)
         {
-            if (targetHeight < cam.transform.position.y)
+            tapRequested = false;
+            float x = swipeDelta.x;
+            float y = swipeDelta.y;
+            if (Mathf.Abs(x) > Mathf.Abs(y))
             {
-                Debug.Log("down");
-                cam.transform.Translate(new Vector3(0, -correctionSpeed, 0) * Time.deltaTime);
-                if (targetHeight >= cam.transform.position.y)
-                {
-                    cam.transform.position = new Vector3(0, targetHeight, -10);
-                    shouldFix = false;
-                }
+                if (x > 0)
+                    SwipeHorizontal(true);
+                else
+                    SwipeHorizontal(false);
             }
             else
             {
-                Debug.Log("up");
-                cam.transform.Translate(new Vector3(0, correctionSpeed, 0) * Time.deltaTime);
-                if (targetHeight <= cam.transform.position.y)
-                {
-                    cam.transform.position = new Vector3(0, targetHeight, -10);
-                    shouldFix = false;
-                }
-
+                if (y > 0)
+                    SwipeVertical(true);
+                else
+                    SwipeVertical(false);
             }
+            Reset();
         }
+    }
+
+    private void Reset()
+    {
+        startTouch = swipeDelta = Vector2.zero;
+        isDragging = false;
+    }
+
+    void Touch(Vector3 position)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(position), Vector2.zero);
+
+        if (hit && hit.collider != null)
+        {
+            ITouchable i = hit.collider.gameObject.GetComponent<ITouchable>();
+            if (i != null)
+                i.OnTouch();
+        }
+    }
+
+    void SwipeHorizontal(bool right)
+    {
+        Debug.Log("horizontal");
+    }
+
+    void SwipeVertical(bool up)
+    {
+        if (moving)
+            StopCoroutine("MoveCam");
+
+        if (up)
+            IncTI(true);
+        else if (!up && theatreIndex > 0)
+            IncTI(false);
+
+        StartCoroutine(MoveCam(-(theatreIndex) * verticalSpacing));
+    }
+
+    IEnumerator MoveCam(float targetHeight)
+    {
+        Debug.Log("move");
+        moving = true;
+        bool up = targetHeight > cam.transform.position.y;
+
+        if (up)
+            while (targetHeight > cam.transform.position.y)
+            {
+                cam.transform.Translate(Vector3.up * Time.deltaTime * swipeSpeed);
+                yield return new WaitForEndOfFrame();
+            }
+        else
+            while (targetHeight < cam.transform.position.y)
+            {
+                cam.transform.Translate(Vector3.down * Time.deltaTime * swipeSpeed);
+                yield return new WaitForEndOfFrame();
+            }
+
+        cam.transform.position = new Vector3(0, targetHeight, -10);
+
+        moving = false;
+        yield return 0;
+    }
+
+    void IncTI(bool inc)
+    {
+        if (inc && theatreIndex + 2 < App.playerBehaviour.GetTheatreCount())
+            theatreIndex++;
+        else if (!inc && theatreIndex > 0)
+            theatreIndex--;
     }
 }

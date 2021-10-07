@@ -16,16 +16,34 @@ public class TheatreBehaviour : MonoBehaviour
         data = new Theatre(this, 10, initUnlocked, buyEmpButton);
     }
 
+    private void Start()
+    {
+        if (initUnlocked)
+            Unlock();
+    }
+
     public void AddEmployee(Employee emp)
     {
         data.employees.Add(emp);
         EmployeeBehaviour tempB = Instantiate(employeePrefab).GetComponent<EmployeeBehaviour>();
+        emp.SetTransform(tempB.transform);
         tempB.transform.parent = this.transform;
         tempB.transform.localPosition = new Vector3((data.empCount + 1) * employeeOffset, 0, 0);
         tempB.Initiate(emp);
         data.empCount++;
         App.gridControl.ResfreshLength(transform, data.empCount);
         data.buyEmpButton.gameObject.SetActive(true);
+        App.gridControl.PositionEBB(transform, data.buyEmpButton, employeeOffset);
+        RecalculateIncome();
+    }
+
+    public void RemoveEmployee(EmployeeBehaviour emp)
+    {
+        data.employees.Remove(emp.GetEmployee());
+        data.empCount--;
+        Destroy(emp.gameObject);
+        App.gridControl.ResfreshLength(transform, data.empCount);
+        App.gridControl.RefreshEmpPositions(data.employees, employeeOffset);
         App.gridControl.PositionEBB(transform, data.buyEmpButton, employeeOffset);
         RecalculateIncome();
     }
@@ -48,6 +66,13 @@ public class TheatreBehaviour : MonoBehaviour
     public int GetIncome()
     {
         return data.income;
+    }
+
+    public void Unlock()
+    {
+        data.isUnlocked = true;
+        data.buyEmpButton.gameObject.SetActive(true);
+        App.gridControl.PositionEBB(transform, data.buyEmpButton, employeeOffset);
     }
 
     public bool IsUnlocked()

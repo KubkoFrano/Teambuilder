@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Employee
 {
+    Transform realTransform;
+
     int introExtro;
     int soloTeam;
     int skill;
@@ -17,5 +19,15 @@ public class Employee
         this.skill = skill;
         this.motivation = motivation;
         this.reliability = reliability;
+    }
+
+    public void SetTransform(Transform t)
+    {
+        realTransform = t;
+    }
+
+    public Transform GetTransform()
+    {
+        return realTransform;
     }
 }

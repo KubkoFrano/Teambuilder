@@ -206,7 +206,7 @@ public class GridControl : MonoBehaviour
         if (theatreIndex >= lengths.Length)
             return;
 
-        if (inc && horizontalIndex < lengths[theatreIndex] + 1 && lengths[theatreIndex] != 0)
+        if (inc && horizontalIndex < lengths[theatreIndex] + 1 && rows[theatreIndex].gameObject.GetComponent<TheatreBehaviour>().IsUnlocked())
             horizontalIndex++;
         else if (!inc && horizontalIndex > 0)
             horizontalIndex--;
@@ -229,6 +229,17 @@ public class GridControl : MonoBehaviour
     public void PositionEBB(Transform theatreTransform, Transform button, float offset)
     {
         float x = (lengths[FindIndex(theatreTransform)] + 1) * offset;
-        button.localPosition = new Vector3(x, button.position.y, button.position.z);
+        button.localPosition = new Vector3(x, button.localPosition.y, button.localPosition.z);
+    }
+
+    public void RefreshEmpPositions(List<Employee> emps, float offset)
+    {
+        List<Transform> empTransforms = new List<Transform>();
+
+        for (int i = 0; i < emps.Count; i++)
+        {
+            Transform t = emps[i].GetTransform();
+            t.localPosition = new Vector3((i + 1) * offset, t.localPosition.y, t.localPosition.z);
+        }
     }
 }

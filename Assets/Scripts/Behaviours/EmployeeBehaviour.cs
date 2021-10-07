@@ -10,4 +10,9 @@ public class EmployeeBehaviour : MonoBehaviour
     {
         this.data = data;
     }
+
+    public Employee GetEmployee()
+    {
+        return data;
+    }
 }

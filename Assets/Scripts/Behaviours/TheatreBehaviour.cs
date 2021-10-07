@@ -16,16 +16,6 @@ public class TheatreBehaviour : MonoBehaviour
         data = new Theatre(this, 10, initUnlocked, buyEmpButton);
     }
 
-    private void Start()
-    {
-        //Manage employee buy button
-        if (data.isUnlocked)
-        {
-            App.gridControl.PositionEBB(transform, data.buyEmpButton);
-            data.buyEmpButton.gameObject.SetActive(true);
-        }
-    }
-
     public void AddEmployee(Employee emp)
     {
         data.employees.Add(emp);
@@ -35,6 +25,8 @@ public class TheatreBehaviour : MonoBehaviour
         tempB.Initiate(emp);
         data.empCount++;
         App.gridControl.ResfreshLength(transform, data.empCount);
+        data.buyEmpButton.gameObject.SetActive(true);
+        App.gridControl.PositionEBB(transform, data.buyEmpButton, employeeOffset);
         RecalculateIncome();
     }
 

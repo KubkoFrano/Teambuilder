@@ -223,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b190dcea119fad24b8ae726b7bc5ea7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theatreTransform: {fileID: 5929256455196517282}
 --- !u!61 &5125151596743536185
 BoxCollider2D:
   m_ObjectHideFlags: 0

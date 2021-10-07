@@ -226,9 +226,9 @@ public class GridControl : MonoBehaviour
         lengths[FindIndex(theatreTransform)] = newLength;
     }
 
-    public void PositionEBB(Transform theatreTransform, Transform button)
+    public void PositionEBB(Transform theatreTransform, Transform button, float offset)
     {
-        float x = (lengths[FindIndex(theatreTransform)] + 2) * horizontalSpacing;
-        button.position = new Vector3(x, button.position.y, button.position.z);
+        float x = (lengths[FindIndex(theatreTransform)] + 1) * offset;
+        button.localPosition = new Vector3(x, button.position.y, button.position.z);
     }
 }

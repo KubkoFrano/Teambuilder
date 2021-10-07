@@ -23,8 +23,10 @@ public class GridControl : MonoBehaviour
     private bool isDragging = false;
     private Vector2 startTouch, swipeDelta;
 
-    private void Start()
+    private void Awake()
     {
+        App.gridControl = this;
+
         cam = Camera.main;
         TheatreBehaviour[] temp = GetComponentsInChildren<TheatreBehaviour>();
         horizontalSpacing = 5.62f;
@@ -36,6 +38,11 @@ public class GridControl : MonoBehaviour
             rows[i] = temp[i].transform;
             lengths[i] = temp[i].GetEmpCount();
         }
+    }
+
+    private void Start()
+    {
+
     }
 
     private void Update()
@@ -199,9 +206,29 @@ public class GridControl : MonoBehaviour
         if (theatreIndex >= lengths.Length)
             return;
 
-        if (inc && horizontalIndex < lengths[theatreIndex])
+        if (inc && horizontalIndex < lengths[theatreIndex] + 1 && lengths[theatreIndex] != 0)
             horizontalIndex++;
         else if (!inc && horizontalIndex > 0)
             horizontalIndex--;
+    }
+
+    int FindIndex(Transform theatreTransform)
+    {
+        for (int i = 0; i < rows.Length; i++)
+            if (rows[i] == theatreTransform)
+                return i;
+
+        return 0;
+    }
+
+    public void ResfreshLength(Transform theatreTransform, int newLength)
+    {
+        lengths[FindIndex(theatreTransform)] = newLength;
+    }
+
+    public void PositionEBB(Transform theatreTransform, Transform button)
+    {
+        float x = (lengths[FindIndex(theatreTransform)] + 2) * horizontalSpacing;
+        button.position = new Vector3(x, button.position.y, button.position.z);
     }
 }

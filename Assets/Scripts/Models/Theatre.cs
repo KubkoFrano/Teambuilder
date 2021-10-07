@@ -4,43 +4,17 @@ using UnityEngine;
 
 public class Theatre
 {
-    int empCount = 0;
-    int income;
-    List<Employee> employees = new List<Employee>();
+    public int empCount = 0;
+    public int income;
+    public bool isUnlocked;
+    public List<Employee> employees = new List<Employee>();
+    public Transform buyEmpButton;
 
-    public Theatre(int initialIncome)
+    public Theatre(TheatreBehaviour root, int initialIncome, bool isUnlocked, Transform buyEmpButton)
     {
         income = initialIncome;
-        App.playerBehaviour.AddTheatre(this);
-    }
-
-    public void SetIncome(int income)
-    {
-        this.income = income;
-    }
-
-    public int GetIncome()
-    {
-        return income;
-    }
-
-    public void AddEmployee(Employee emp)
-    {
-        employees.Add(emp);
-    }
-
-    public void AddEmpCount()
-    {
-        empCount++;
-    }
-
-    public void SubtractEmpCount()
-    {
-        empCount--;
-    }
-
-    public int GetEmpCount()
-    {
-        return empCount;
+        this.isUnlocked = isUnlocked;
+        this.buyEmpButton = buyEmpButton;
+        App.playerBehaviour.AddTheatre(root);
     }
 }

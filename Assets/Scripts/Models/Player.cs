@@ -6,7 +6,7 @@ public class Player
 {
     public int money;
     public int theatreCount;
-    public List<Theatre> theatres = new List<Theatre>();
+    public List<TheatreBehaviour> theatres = new List<TheatreBehaviour>();
 
     public Player(int money, int theatreCount)
     {

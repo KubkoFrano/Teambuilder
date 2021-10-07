@@ -6,40 +6,60 @@ public class TheatreBehaviour : MonoBehaviour
 {
     [SerializeField] GameObject employeePrefab;
     [SerializeField] float employeeOffset;
+    [SerializeField] bool initUnlocked;
+    [SerializeField] Transform buyEmpButton;
 
     Theatre data;
 
     private void Awake()
     {
-        data = new Theatre(10);
+        data = new Theatre(this, 10, initUnlocked, buyEmpButton);
     }
 
     private void Start()
     {
-        //Debug
-        AddEmployee(new Employee(1, 1, 1, 1, 1));
-        AddEmployee(new Employee(1, 1, 1, 1, 1));
+        //Manage employee buy button
+        if (data.isUnlocked)
+        {
+            App.gridControl.PositionEBB(transform, data.buyEmpButton);
+            data.buyEmpButton.gameObject.SetActive(true);
+        }
     }
 
     public void AddEmployee(Employee emp)
     {
-        data.AddEmployee(emp);
+        data.employees.Add(emp);
         EmployeeBehaviour tempB = Instantiate(employeePrefab).GetComponent<EmployeeBehaviour>();
         tempB.transform.parent = this.transform;
-        tempB.transform.localPosition = new Vector3((data.GetEmpCount() + 1) * employeeOffset, 0, 0);
+        tempB.transform.localPosition = new Vector3((data.empCount + 1) * employeeOffset, 0, 0);
         tempB.Initiate(emp);
-        data.AddEmpCount();
-        
+        data.empCount++;
+        App.gridControl.ResfreshLength(transform, data.empCount);
         RecalculateIncome();
     }
 
     public int GetEmpCount()
     {
-        return data.GetEmpCount();
+        return data.empCount;
     }
 
     public void RecalculateIncome()
     {
         //Recalculates income based on list of employees in data
+    }
+
+    public void SetIncome(int income)
+    {
+        data.income = income;
+    }
+
+    public int GetIncome()
+    {
+        return data.income;
+    }
+
+    public bool IsUnlocked()
+    {
+        return data.isUnlocked;
     }
 }

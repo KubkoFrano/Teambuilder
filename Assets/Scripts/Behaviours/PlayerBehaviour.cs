@@ -17,7 +17,7 @@ public class PlayerBehaviour : MonoBehaviour
         data.money += toAdd;
     }
 
-    public void AddTheatre(Theatre theatre)
+    public void AddTheatre(TheatreBehaviour theatre)
     {
         data.theatres.Add(theatre);
         data.theatreCount++;
@@ -26,5 +26,10 @@ public class PlayerBehaviour : MonoBehaviour
     public int GetTheatreCount()
     {
         return data.theatreCount;
+    }
+
+    public List<TheatreBehaviour> GetTheatres()
+    {
+        return data.theatres;
     }
 }

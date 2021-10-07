@@ -174,7 +174,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verticalSpacing: 8
   swipeSpeed: 60
-  correctionSpeed: 20
 --- !u!1001 &315267758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -226,6 +225,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Color.b
+      value: 0.4339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4339623
+      objectReference: {fileID: 0}
     - target: {fileID: 5929256455196517284, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: m_Name
       value: Theatre (4)
@@ -241,6 +252,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5929256455196517282, guid: cabef120f3bb6324087e278767244218, type: 3}
   m_PrefabInstance: {fileID: 315267758}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &625695444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 625695446}
+  - component: {fileID: 625695445}
+  m_Layer: 0
+  m_Name: Loader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &625695445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625695444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09995c01abedca4383217688756f25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &625695446
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625695444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &849723602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -291,6 +345,18 @@ PrefabInstance:
     - target: {fileID: 5929256455196517282, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Color.b
+      value: 0.4339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4339623
       objectReference: {fileID: 0}
     - target: {fileID: 5929256455196517284, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: m_Name
@@ -357,6 +423,18 @@ PrefabInstance:
     - target: {fileID: 5929256455196517282, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Color.b
+      value: 0.4339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4339623
       objectReference: {fileID: 0}
     - target: {fileID: 5929256455196517284, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: m_Name
@@ -507,6 +585,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Color.b
+      value: 0.4339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Color.g
+      value: 0.4339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Color.r
+      value: 0.4339623
+      objectReference: {fileID: 0}
     - target: {fileID: 5929256455196517284, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: m_Name
       value: Theatre (1)
@@ -529,6 +619,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 86076314}
     m_Modifications:
+    - target: {fileID: 5929256455196517281, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: initUnlocked
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5929256455196517282, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: m_RootOrder
       value: 0

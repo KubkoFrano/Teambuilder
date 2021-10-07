@@ -225,18 +225,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
-      propertyPath: m_Color.b
-      value: 0.4339623
-      objectReference: {fileID: 0}
-    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
-      propertyPath: m_Color.g
-      value: 0.4339623
-      objectReference: {fileID: 0}
-    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
-      propertyPath: m_Color.r
-      value: 0.4339623
-      objectReference: {fileID: 0}
     - target: {fileID: 5929256455196517284, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: m_Name
       value: Theatre (4)
@@ -302,10 +290,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 86076314}
     m_Modifications:
-    - target: {fileID: 5929256455196517281, guid: cabef120f3bb6324087e278767244218, type: 3}
-      propertyPath: initUnlocked
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5929256455196517282, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -416,18 +400,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
-      propertyPath: m_Color.b
-      value: 0.4339623
-      objectReference: {fileID: 0}
-    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
-      propertyPath: m_Color.g
-      value: 0.4339623
-      objectReference: {fileID: 0}
-    - target: {fileID: 5929256455196517283, guid: cabef120f3bb6324087e278767244218, type: 3}
-      propertyPath: m_Color.r
-      value: 0.4339623
-      objectReference: {fileID: 0}
     - target: {fileID: 5929256455196517284, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: m_Name
       value: Theatre (3)
@@ -533,10 +505,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 86076314}
     m_Modifications:
-    - target: {fileID: 5929256455196517281, guid: cabef120f3bb6324087e278767244218, type: 3}
-      propertyPath: initUnlocked
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5929256455196517282, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class TheatreBehaviour : MonoBehaviour
 {
+    [Header("Visual")]
+    [SerializeField] Color32 unlockedColor;
+    SpriteRenderer mRenderer;
+
+    [Header("Do not touch")]
     [SerializeField] GameObject employeePrefab;
     [SerializeField] float employeeOffset;
     [SerializeField] bool initUnlocked;
     [SerializeField] Transform buyEmpButton;
+    [SerializeField] GameObject buyTheatreButton;
 
     Theatre data;
 
     private void Awake()
     {
         data = new Theatre(this, 10, initUnlocked, buyEmpButton);
+        mRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -71,6 +78,8 @@ public class TheatreBehaviour : MonoBehaviour
     public void Unlock()
     {
         data.isUnlocked = true;
+        buyTheatreButton.SetActive(false);
+        mRenderer.color = unlockedColor;
         data.buyEmpButton.gameObject.SetActive(true);
         App.gridControl.PositionEBB(transform, data.buyEmpButton, employeeOffset);
     }

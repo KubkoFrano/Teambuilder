@@ -33,6 +33,9 @@ public class GridControl : MonoBehaviour
         rows = new Transform[temp.Length];
         lengths = new int[temp.Length];
 
+        foreach (TheatreBehaviour t in temp)
+            t.enabled = true;
+
         for (int i = 0; i < rows.Length; i++)
         {
             rows[i] = temp[i].transform;

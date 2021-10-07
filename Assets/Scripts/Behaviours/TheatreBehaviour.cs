@@ -17,14 +17,11 @@ public class TheatreBehaviour : MonoBehaviour
 
     Theatre data;
 
-    private void Awake()
+    private void OnEnable()
     {
         data = new Theatre(this, 10, initUnlocked, buyEmpButton);
         mRenderer = GetComponent<SpriteRenderer>();
-    }
 
-    private void Start()
-    {
         if (initUnlocked)
             Unlock();
     }

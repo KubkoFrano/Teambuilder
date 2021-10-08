@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5929256455196517282}
   - component: {fileID: 5929256455196517283}
   - component: {fileID: 5929256455196517281}
+  - component: {fileID: 5121607088629272237}
   m_Layer: 0
   m_Name: Theatre
   m_TagString: Untagged
@@ -105,6 +106,21 @@ MonoBehaviour:
   initUnlocked: 0
   buyEmpButton: {fileID: 6464380665380053827}
   buyTheatreButton: {fileID: 6984450042242969349}
+--- !u!114 &5121607088629272237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5929256455196517284}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b3eb5268a83c646aeacd1352eec6a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: 0
+  lowest: 0
+  highest: 0
 --- !u!1 &6984450042242969349
 GameObject:
   m_ObjectHideFlags: 0

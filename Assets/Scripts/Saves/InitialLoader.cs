@@ -9,6 +9,6 @@ public class InitialLoader : MonoBehaviour
     private void Start()
     {
         theatres = App.playerBehaviour.GetTheatres();
-        theatres[0].AddEmployee(new Employee(10, 10, 10, 10, 10, EmpType.herec));
+        theatres[0].AddRandom();
     }
 }

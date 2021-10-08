@@ -85,4 +85,10 @@ public class TheatreBehaviour : MonoBehaviour
     {
         return data.isUnlocked;
     }
+
+    //Debug
+    public void AddRandom()
+    {
+        AddEmployee(GetComponent<EmployeeGenerator>().GenerateEmployee());
+    }
 }

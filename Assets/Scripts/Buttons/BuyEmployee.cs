@@ -18,6 +18,6 @@ public class BuyEmployee : MonoBehaviour, ITouchable
 
     void AddEmployee()
     {
-        theatre.AddEmployee(new Employee(-50, 50, -30, 40, 100, EmpType.reziser));
+        theatre.AddRandom();
     }
 }

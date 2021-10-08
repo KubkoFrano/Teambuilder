@@ -18,6 +18,6 @@ public class BuyEmployee : MonoBehaviour, ITouchable
 
     void AddEmployee()
     {
-        theatre.AddEmployee(new Employee(10, 10, 10, 10, 10));
+        theatre.AddEmployee(new Employee(10, 10, 10, 10, 10, EmpType.reziser));
     }
 }

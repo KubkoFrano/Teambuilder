@@ -1,0 +1,1 @@
+public enum EmpType { reziser, herec, dramaturg, producent }

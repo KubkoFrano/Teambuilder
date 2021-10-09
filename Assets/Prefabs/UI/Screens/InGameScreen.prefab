@@ -357,6 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3456567043782635732}
   - component: {fileID: 3456567043782635735}
+  - component: {fileID: 429190356509768124}
   m_Layer: 5
   m_Name: InGameScreen
   m_TagString: Untagged
@@ -396,6 +397,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4477ccd071ed5fc40828be97b6baf132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &429190356509768124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3456567043782635733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7baac789c04fb847942f2c1f7bebea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plusColor:
+    serializedVersion: 2
+    rgba: 4278238720
+  minusColor:
+    serializedVersion: 2
+    rgba: 4278190335
+  zeroColor:
+    serializedVersion: 2
+    rgba: 4294901760
+  balanceText: {fileID: 3982556123286734105}
+  incomeText: {fileID: 8543813100332692862}
 --- !u!1 &4101279249636466983
 GameObject:
   m_ObjectHideFlags: 0

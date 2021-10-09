@@ -211,7 +211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3456567043782635733, guid: adf5964fd08fd264e98e5dcccc914860, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adf5964fd08fd264e98e5dcccc914860, type: 3}
@@ -230,6 +230,10 @@ PrefabInstance:
     - target: {fileID: 6502629600618584774, guid: 14c8bcfddebaf804785227d84c7a5a7a, type: 3}
       propertyPath: m_Name
       value: EmployeeShopScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502629600618584774, guid: 14c8bcfddebaf804785227d84c7a5a7a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6502629600618584775, guid: 14c8bcfddebaf804785227d84c7a5a7a, type: 3}
       propertyPath: m_Pivot.x

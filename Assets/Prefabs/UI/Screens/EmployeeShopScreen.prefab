@@ -477,7 +477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6502629600618584775}
-  - component: {fileID: 6502629600618584772}
+  - component: {fileID: 30438529249431984}
   m_Layer: 5
   m_Name: EmployeeShopScreen
   m_TagString: Untagged
@@ -505,7 +505,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6502629600618584772
+--- !u!114 &30438529249431984
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -514,7 +514,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6502629600618584774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4477ccd071ed5fc40828be97b6baf132, type: 3}
+  m_Script: {fileID: 11500000, guid: 02b373ceb5c84b142a60468a2fb2d788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4001676312672823758

@@ -28,13 +28,9 @@ public class PlayerBehaviour : MonoBehaviour
         while (true)
         {
             data.money += data.income;
+            App.moneyDisplayer.RefreshBalance(data.money);
             yield return new WaitForSeconds(1);
         }
-    }
-
-    public void RefreshMoney()
-    {
-        App.moneyDisplayer.RefreshBalance(data.money);
     }
 
     public void CalculateIncome()

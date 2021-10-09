@@ -201,6 +201,10 @@ PrefabInstance:
       propertyPath: modifier
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517281, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: modifier
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 5929256455196517282, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -330,6 +334,10 @@ PrefabInstance:
       propertyPath: modifier
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517281, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: modifier
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5929256455196517282, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -413,6 +421,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5121607088629272237, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: modifier
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517281, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: modifier
       value: 8
       objectReference: {fileID: 0}
@@ -585,6 +597,10 @@ PrefabInstance:
       propertyPath: modifier
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517281, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: modifier
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5929256455196517282, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -668,6 +684,10 @@ PrefabInstance:
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5121607088629272237, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: modifier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929256455196517281, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: modifier
       value: 1
       objectReference: {fileID: 0}

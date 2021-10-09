@@ -7,6 +7,9 @@ public class TheatreBehaviour : MonoBehaviour
     [Header("Visual")]
     [SerializeField] Color32 unlockedColor;
     SpriteRenderer mRenderer;
+    
+    [Tooltip("Used for calculating income")]
+    [SerializeField] int modifier;
 
     [Header("Do not touch")]
     [SerializeField] GameObject employeePrefab;
@@ -19,7 +22,7 @@ public class TheatreBehaviour : MonoBehaviour
 
     private void OnEnable()
     {
-        data = new Theatre(this, 10, initUnlocked, buyEmpButton);
+        data = new Theatre(this, 0, initUnlocked, buyEmpButton);
         mRenderer = GetComponent<SpriteRenderer>();
 
         if (initUnlocked)
@@ -59,7 +62,18 @@ public class TheatreBehaviour : MonoBehaviour
 
     public void RecalculateIncome()
     {
-        //Recalculates income based on list of employees in data
+        int result = 0;
+
+        foreach (Employee e in data.employees)
+        {
+            result += e.GetIncome();
+        }
+
+        result *= modifier;
+        data.income = result;
+
+        App.playerBehaviour.CalculateIncome();
+        App.playerBehaviour.RefreshIncome();
     }
 
     public void SetIncome(int income)
@@ -79,6 +93,7 @@ public class TheatreBehaviour : MonoBehaviour
         mRenderer.color = unlockedColor;
         data.buyEmpButton.gameObject.SetActive(true);
         App.gridControl.PositionEBB(transform, data.buyEmpButton, employeeOffset);
+        RecalculateIncome();
     }
 
     public bool IsUnlocked()

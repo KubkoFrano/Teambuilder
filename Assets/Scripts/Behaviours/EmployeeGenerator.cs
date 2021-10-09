@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class EmployeeGenerator : MonoBehaviour
 { 
-    [Tooltip("Modifies income per second")]
-    [SerializeField] int modifier;
-
     [Header("Employee qualities generation from -100 to 200")]
     [SerializeField] int lowest1;
     [SerializeField] int highest1;

@@ -23,6 +23,11 @@ public class Employee
         this.empType = empType;
     }
 
+    public int GetIncome()
+    {
+        return skill + motivation + reliability;
+    }
+
     public void SetTransform(Transform t)
     {
         realTransform = t;

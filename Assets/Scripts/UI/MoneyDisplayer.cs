@@ -22,11 +22,12 @@ public class MoneyDisplayer : MonoBehaviour
     {
         RefreshBalance(App.playerBehaviour.GetBalance());
         RefreshIncome(App.playerBehaviour.GetIncome());
+        App.playerBehaviour.StartMakingMoney();
     }
 
     public void RefreshBalance(int balance)
     {
-        balanceText.text = balance.ToString();
+        balanceText.text = balance.ToString() + " $";
     }
 
     public void RefreshIncome(int income)
@@ -46,7 +47,7 @@ public class MoneyDisplayer : MonoBehaviour
         else
             incomeText.color = zeroColor;
 
-        result += income.ToString();
+        result += Mathf.Abs(income).ToString();
 
         incomeText.text = result;
     }

@@ -15,8 +15,12 @@ public class EmployeeCard : MonoBehaviour
     [SerializeField] SliderDecider reliability;
     [SerializeField] GameObject blank;
 
+    Employee currentEmp;
+
     public void CreateCard(Employee emp)
     {
+        currentEmp = emp;
+
         if (emp == null)
         {
             blank.SetActive(true);
@@ -33,5 +37,11 @@ public class EmployeeCard : MonoBehaviour
         skill.SetValue(emp.GetSkill());
         motivation.SetValue(emp.GetMovivation());
         reliability.SetValue(emp.GetReliability());
+    }
+
+    public void BuyEmployee()
+    {
+        App.empShopScreen.AddEmployee(currentEmp);
+        CreateCard(null);
     }
 }

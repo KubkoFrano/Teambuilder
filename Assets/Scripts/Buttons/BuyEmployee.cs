@@ -19,5 +19,6 @@ public class BuyEmployee : MonoBehaviour, ITouchable
     void AddEmployee()
     {
         App.screenManager.Show<EmployeeShopScreen>();
+        App.empShopScreen.SetTheatreBehaviour(theatre);
     }
 }

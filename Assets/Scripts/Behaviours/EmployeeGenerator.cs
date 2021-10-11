@@ -76,4 +76,16 @@ public class EmployeeGenerator : MonoBehaviour
 
         StartCoroutine(ManageRefresh());
     }
+
+    public void RemoveEmp(Employee emp)
+    {
+        for (int i = 0; i < currentEmps.Length; i++)
+        {
+            if (currentEmps[i] == emp)
+            {
+                currentEmps[i] = null;
+                return;
+            }
+        }
+    }
 }

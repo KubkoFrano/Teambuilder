@@ -8,6 +8,7 @@ public class EmployeeShopScreen : ScreenBase
     [SerializeField] ShopTimer timer;
 
     EmployeeGenerator generator;
+    TheatreBehaviour theatre;
 
     private void Awake()
     {
@@ -39,5 +40,16 @@ public class EmployeeShopScreen : ScreenBase
     public void UpdateTimer(int time)
     {
         timer.SetTime(time);
+    }
+
+    public void SetTheatreBehaviour(TheatreBehaviour theatre)
+    {
+        this.theatre = theatre;
+    }
+
+    public void AddEmployee(Employee emp)
+    {
+        theatre.AddEmployee(emp);
+        generator.RemoveEmp(emp);
     }
 }

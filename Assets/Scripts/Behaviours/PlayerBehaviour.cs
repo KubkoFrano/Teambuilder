@@ -69,6 +69,18 @@ public class PlayerBehaviour : MonoBehaviour
         return data.money;
     }
 
+    public bool SpendMoney(int money)
+    {
+        if (money < data.money)
+        {
+            data.money -= money;
+            App.moneyDisplayer.RefreshBalance(data.money);
+            return true;
+        }
+        else
+            return false;
+    }
+
     public int GetIncome()
     {
         return data.income;

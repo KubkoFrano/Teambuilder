@@ -181,6 +181,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 86076314}
     m_Modifications:
+    - target: {fileID: 4977771612140012257, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: price
+      value: 20000
+      objectReference: {fileID: 0}
     - target: {fileID: 5121607088629272237, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: lowest1
       value: -50
@@ -314,6 +318,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 86076314}
     m_Modifications:
+    - target: {fileID: 4977771612140012257, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: price
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 5121607088629272237, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: lowest1
       value: -50
@@ -404,6 +412,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 86076314}
     m_Modifications:
+    - target: {fileID: 4977771612140012257, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: price
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 5121607088629272237, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: lowest1
       value: -50
@@ -577,6 +589,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 86076314}
     m_Modifications:
+    - target: {fileID: 4977771612140012257, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: price
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 5121607088629272237, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: lowest1
       value: -50

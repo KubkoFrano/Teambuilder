@@ -89,6 +89,7 @@ public class TheatreBehaviour : MonoBehaviour
     public void Unlock()
     {
         data.isUnlocked = true;
+        GetComponent<EmployeeGenerator>().enabled = true; ;
         buyTheatreButton.SetActive(false);
         mRenderer.color = unlockedColor;
         data.buyEmpButton.gameObject.SetActive(true);

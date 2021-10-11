@@ -11,6 +11,7 @@ public class GridControl : MonoBehaviour
 
     Transform[] rows;
     int[] lengths;
+    EmployeeGenerator[] generators;
 
     Camera cam;
     bool isMovingV = false;
@@ -34,6 +35,7 @@ public class GridControl : MonoBehaviour
         horizontalSpacing = 5.62f;
         rows = new Transform[temp.Length];
         lengths = new int[temp.Length];
+        generators = new EmployeeGenerator[temp.Length];
 
         foreach (TheatreBehaviour t in temp)
             t.enabled = true;
@@ -42,6 +44,8 @@ public class GridControl : MonoBehaviour
         {
             rows[i] = temp[i].transform;
             lengths[i] = temp[i].GetEmpCount();
+            generators[i] = temp[i].gameObject.GetComponent<EmployeeGenerator>();
+            generators[i].SetIndex(i);
         }
     }
 
@@ -246,5 +250,15 @@ public class GridControl : MonoBehaviour
     public void SetSwipe(bool value)
     {
         canSwipe = value;
+    }
+
+    public EmployeeGenerator GetCurrentGenerator()
+    {
+        return generators[theatreIndex];
+    }
+
+    public int GetTheatreIndex()
+    {
+        return theatreIndex;
     }
 }

@@ -297,6 +297,7 @@ MonoBehaviour:
   unlockedColor:
     serializedVersion: 2
     rgba: 4294967295
+  modifier: 0
   employeePrefab: {fileID: 9130289291308101457, guid: 2563401444a0d03428688c4db4876416, type: 3}
   employeeOffset: 1.05
   initUnlocked: 0
@@ -314,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b3eb5268a83c646aeacd1352eec6a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modifier: 0
+  refreshDelaySeconds: 20
   lowest1: 0
   highest1: 0
   lowest2: 0

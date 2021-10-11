@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class InGameScreen : ScreenBase
 {
-
+    public void DebugExit()
+    {
+        Application.Quit();
+    }
 }

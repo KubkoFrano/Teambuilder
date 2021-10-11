@@ -12,8 +12,9 @@ public class Employee
     int skill;
     int motivation;
     int reliability;
+    int price;
 
-    public Employee(int extroIntro, int soloTeam, int skill, int motivation, int reliability, EmpType empType)
+    public Employee(int extroIntro, int soloTeam, int skill, int motivation, int reliability, EmpType empType, int price)
     {
         this.extroIntro = extroIntro;
         this.soloTeam = soloTeam;
@@ -21,6 +22,7 @@ public class Employee
         this.motivation = motivation;
         this.reliability = reliability;
         this.empType = empType;
+        this.price = price;
     }
 
     public int GetIncome()
@@ -66,5 +68,10 @@ public class Employee
     public int GetReliability()
     {
         return reliability;
+    }
+
+    public int GetPrice()
+    {
+        return price;
     }
 }

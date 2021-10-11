@@ -102,6 +102,11 @@ public class TheatreBehaviour : MonoBehaviour
         return data.isUnlocked;
     }
 
+    public int GetModifier()
+    {
+        return modifier;
+    }
+
     //Debug
     public void AddRandom()
     {

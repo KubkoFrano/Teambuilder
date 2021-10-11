@@ -631,7 +631,7 @@ GameObject:
   - component: {fileID: 8205512518142161580}
   - component: {fileID: 6261072372788188623}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Price text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -711,8 +711,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 176
-  m_fontSizeBase: 176
+  m_fontSize: 118.2
+  m_fontSizeBase: 118.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1597,6 +1597,7 @@ MonoBehaviour:
   skill: {fileID: 4696202981840399482}
   motivation: {fileID: 8292453465356285479}
   reliability: {fileID: 4646533881440759733}
+  priceText: {fileID: 6261072372788188623}
   blank: {fileID: 1183085570819211546}
 --- !u!1 &3629608313242264924
 GameObject:

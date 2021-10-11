@@ -13,6 +13,7 @@ public class EmployeeCard : MonoBehaviour
     [SerializeField] SliderDecider skill;
     [SerializeField] SliderDecider motivation;
     [SerializeField] SliderDecider reliability;
+    [SerializeField] TextMeshProUGUI priceText;
     [SerializeField] GameObject blank;
 
     Employee currentEmp;
@@ -37,11 +38,15 @@ public class EmployeeCard : MonoBehaviour
         skill.SetValue(emp.GetSkill());
         motivation.SetValue(emp.GetMovivation());
         reliability.SetValue(emp.GetReliability());
+        priceText.text = emp.GetPrice() + " $";
     }
 
     public void BuyEmployee()
     {
-        App.empShopScreen.AddEmployee(currentEmp);
-        CreateCard(null);
+        if (App.playerBehaviour.SpendMoney(currentEmp.GetPrice()))
+        {
+            App.empShopScreen.AddEmployee(currentEmp);
+            CreateCard(null);
+        }
     }
 }

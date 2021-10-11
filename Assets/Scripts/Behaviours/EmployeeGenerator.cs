@@ -18,16 +18,19 @@ public class EmployeeGenerator : MonoBehaviour
 
     int timer;
     int index;
+    int modifier;
 
     private void OnEnable()
     {
+        modifier = GetComponent<TheatreBehaviour>().GetModifier();
         StartCoroutine(DelayInitialRefresh());
     }
 
     public Employee GenerateEmployee()
     {
         Employee temp = new Employee(Random.Range(lowest1, highest1), Random.Range(lowest1, highest1),
-            Random.Range(lowest2, highest2), Random.Range(lowest2, highest2), Random.Range(lowest2, highest2), (EmpType) Random.Range(0, 3));
+            Random.Range(lowest2, highest2), Random.Range(lowest2, highest2), Random.Range(lowest2, highest2), (EmpType) Random.Range(0, 3), 
+            modifier * 100);
 
         return temp;
     }

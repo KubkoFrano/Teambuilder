@@ -681,6 +681,7 @@ MonoBehaviour:
   - {fileID: 8509994056204433932}
   - {fileID: 3396218365283422381}
   timer: {fileID: 4773074391575269761}
+  theatreText: {fileID: 4994243853660795201}
 --- !u!1001 &4001676312672823758
 PrefabInstance:
   m_ObjectHideFlags: 0

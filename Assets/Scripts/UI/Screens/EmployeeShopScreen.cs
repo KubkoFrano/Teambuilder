@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EmployeeShopScreen : ScreenBase
 {
     [SerializeField] EmployeeCard[] cards;
     [SerializeField] ShopTimer timer;
+    [SerializeField] TextMeshProUGUI theatreText;
 
     EmployeeGenerator generator;
     TheatreBehaviour theatre;
@@ -21,6 +23,7 @@ public class EmployeeShopScreen : ScreenBase
         App.gridControl.SetSwipe(false);
         generator = App.gridControl.GetCurrentGenerator();
         SetEmps(generator.GetCurrentEmps());
+        theatreText.text = "Theatre " + (App.gridControl.GetTheatreIndex() + 1);
     }
 
     public override void Hide()

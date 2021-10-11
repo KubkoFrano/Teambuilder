@@ -6,7 +6,7 @@ using TMPro;
 
 public class EmployeeBehaviour : MonoBehaviour
 {
-    [SerializeField] EmployeePresets[] presets;
+    [SerializeField] EmployeeDefaults defaults;
 
     [SerializeField] SpriteRenderer avatar;
     [SerializeField] TextMeshProUGUI typeText;
@@ -36,19 +36,10 @@ public class EmployeeBehaviour : MonoBehaviour
 
     void SetPresets(EmpType empType)
     {
-        EmployeePresets presets = FindPresets(empType);
+        EmployeePresets presets = defaults.FindPresets(empType);
 
         avatar.sprite = presets.GetPicture();
         typeText.text = presets.GetName();
-    }
-
-    EmployeePresets FindPresets(EmpType empType)
-    {
-        foreach (EmployeePresets p in presets)
-            if (p.GetEmpType() == empType)
-                return p;
-
-        return null;
     }
 
     public Employee GetEmployee()

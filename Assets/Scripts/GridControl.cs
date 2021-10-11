@@ -23,6 +23,8 @@ public class GridControl : MonoBehaviour
     private bool isDragging = false;
     private Vector2 startTouch, swipeDelta;
 
+    bool canSwipe = true;
+
     private void Awake()
     {
         App.gridControl = this;
@@ -41,11 +43,6 @@ public class GridControl : MonoBehaviour
             rows[i] = temp[i].transform;
             lengths[i] = temp[i].GetEmpCount();
         }
-    }
-
-    private void Start()
-    {
-
     }
 
     private void Update()
@@ -71,7 +68,7 @@ public class GridControl : MonoBehaviour
         if (isDragging && Input.touchCount > 0)
             swipeDelta = Input.touches[0].position - startTouch;
 
-        if (swipeDelta.magnitude > 100)
+        if (canSwipe && swipeDelta.magnitude > 100)
         {
             tapRequested = false;
             float x = swipeDelta.x;
@@ -244,5 +241,10 @@ public class GridControl : MonoBehaviour
             Transform t = emps[i].GetTransform();
             t.localPosition = new Vector3((i + 1) * offset, t.localPosition.y, t.localPosition.z);
         }
+    }
+
+    public void SetSwipe(bool value)
+    {
+        canSwipe = value;
     }
 }

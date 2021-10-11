@@ -181,6 +181,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 86076314}
     m_Modifications:
+    - target: {fileID: 3326360006048507072, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c22b937e96362cd458c4f7726ed38a7c, type: 3}
     - target: {fileID: 4977771612140012257, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: price
       value: 20000
@@ -318,6 +322,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 86076314}
     m_Modifications:
+    - target: {fileID: 3326360006048507072, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: aea70f6a416cfae45b7be7de70dafebd, type: 3}
     - target: {fileID: 4977771612140012257, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: price
       value: 5000
@@ -412,6 +420,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 86076314}
     m_Modifications:
+    - target: {fileID: 3326360006048507072, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 62d0c734f08a34c42b6dcf582b5f3980, type: 3}
     - target: {fileID: 4977771612140012257, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: price
       value: 10000
@@ -589,6 +601,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 86076314}
     m_Modifications:
+    - target: {fileID: 3326360006048507072, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d5c1aea598537204e99659c5e802f404, type: 3}
     - target: {fileID: 4977771612140012257, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: price
       value: 500
@@ -683,6 +699,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 86076314}
     m_Modifications:
+    - target: {fileID: 3326360006048507072, guid: cabef120f3bb6324087e278767244218, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5fd3b2bf8b42db5499744452541a335a, type: 3}
     - target: {fileID: 5121607088629272237, guid: cabef120f3bb6324087e278767244218, type: 3}
       propertyPath: lowest1
       value: -50

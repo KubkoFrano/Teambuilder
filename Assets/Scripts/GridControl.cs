@@ -156,7 +156,7 @@ public class GridControl : MonoBehaviour
     void SwipeVertical(bool up)
     {
         if (isMovingV)
-            StopCoroutine("MoveCam");
+            return;
 
         if (up)
             IncTI(true);

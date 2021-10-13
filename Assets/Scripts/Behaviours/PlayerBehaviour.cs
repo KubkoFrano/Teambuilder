@@ -85,4 +85,10 @@ public class PlayerBehaviour : MonoBehaviour
     {
         return data.income;
     }
+
+    public void AddMoney(int money)
+    {
+        data.money += money;
+        App.moneyDisplayer.RefreshBalance(data.money);
+    }
 }

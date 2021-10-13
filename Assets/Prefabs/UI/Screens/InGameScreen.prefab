@@ -545,7 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plusColor:
     serializedVersion: 2
-    rgba: 4278238720
+    rgba: 4282300222
   minusColor:
     serializedVersion: 2
     rgba: 4278190335

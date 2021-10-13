@@ -150,5 +150,5 @@ MonoBehaviour:
   fadeoutSpeed: 10
   baseColor:
     serializedVersion: 2
-    rgba: 4278255360
+    rgba: 4282300222
   text: {fileID: 2132042402218453545}

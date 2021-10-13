@@ -135,7 +135,7 @@ public class GridControl : MonoBehaviour
     void SwipeHorizontal(bool right)
     {
         if (isMovingH)
-            StopCoroutine("MoveTheatre");
+            return;
 
         if (right)
             IncHI(false);

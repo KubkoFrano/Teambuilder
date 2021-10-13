@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d329e59269484546a6bfb8cd9497dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tapCash: 1
+  tapCash: 5
   textsNumber: 20
   offsetH: 350
   offsetV: 750

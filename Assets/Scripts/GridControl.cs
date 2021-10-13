@@ -53,6 +53,7 @@ public class GridControl : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
+            //Mobile input
             if (Input.touches[0].phase == TouchPhase.Began)
             {
                 tapRequested = true;
@@ -67,6 +68,11 @@ public class GridControl : MonoBehaviour
                 Reset();
             }
         }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            //PC input
+            Touch(Input.mousePosition);
+        }
 
         swipeDelta = Vector2.zero;
         if (isDragging && Input.touchCount > 0)
@@ -74,6 +80,7 @@ public class GridControl : MonoBehaviour
 
         if (canSwipe && swipeDelta.magnitude > 100)
         {
+            //Mobile input
             tapRequested = false;
             float x = swipeDelta.x;
             float y = swipeDelta.y;
@@ -92,6 +99,18 @@ public class GridControl : MonoBehaviour
                     SwipeVertical(false);
             }
             Reset();
+        }
+        else if (canSwipe)
+        {
+            //PC input
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+                SwipeHorizontal(true);
+            else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+                SwipeHorizontal(false);
+            else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+                SwipeVertical(false);
+            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+                SwipeVertical(true);
         }
     }
 

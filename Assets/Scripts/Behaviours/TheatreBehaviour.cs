@@ -17,6 +17,11 @@ public class TheatreBehaviour : MonoBehaviour
     [SerializeField] bool initUnlocked;
     [SerializeField] Transform buyEmpButton;
     [SerializeField] GameObject buyTheatreButton;
+    [SerializeField] GameObject statsPanel;
+    [SerializeField] StatText skillText;
+    [SerializeField] StatText motivationText;
+    [SerializeField] StatText reliabilityText;
+    [SerializeField] StatText totalText;
 
     Theatre data;
 
@@ -63,17 +68,32 @@ public class TheatreBehaviour : MonoBehaviour
     public void RecalculateIncome()
     {
         int result = 0;
+        int skill = 0;
+        int motivation = 0;
+        int reliability = 0;
 
         foreach (Employee e in data.employees)
         {
             result += e.GetIncome();
+            skill += e.GetSkill();
+            motivation += e.GetMovivation();
+            reliability += e.GetReliability();
         }
 
         result *= modifier;
         data.income = result;
 
+        RefreshTheatreStats(skill * modifier, motivation * modifier, reliability * modifier, result);
         App.playerBehaviour.CalculateIncome();
         App.playerBehaviour.RefreshIncome();
+    }
+
+    void RefreshTheatreStats(int skill, int motivation, int reliability, int total)
+    {
+        skillText.SetText(skill);
+        motivationText.SetText(motivation);
+        reliabilityText.SetText(reliability);
+        totalText.SetText(total);
     }
 
     public void SetIncome(int income)
@@ -94,6 +114,7 @@ public class TheatreBehaviour : MonoBehaviour
         mRenderer.color = unlockedColor;
         data.buyEmpButton.gameObject.SetActive(true);
         App.gridControl.PositionEBB(transform, data.buyEmpButton, employeeOffset);
+        statsPanel.SetActive(true);
         RecalculateIncome();
     }
 

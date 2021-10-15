@@ -212,7 +212,7 @@ public class GridControl : MonoBehaviour
 
     void IncTI(bool inc)
     {
-        if (inc && theatreIndex + 2 < App.playerBehaviour.GetTheatreCount())
+        if (inc && theatreIndex < rows.Length - 1)
         {
             StartCoroutine(MoveTheatre(0, theatreIndex));
             theatreIndex++;
